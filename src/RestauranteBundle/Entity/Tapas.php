@@ -3,6 +3,7 @@
 namespace RestauranteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tapas
@@ -25,6 +26,12 @@ class Tapas
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      max = 128,
+     *      maxMessage = "El nombre no puede tener mas de 128 caracteres"
+     * )
+
      */
     private $nombre;
 
@@ -32,6 +39,7 @@ class Tapas
      * @var string
      *
      * @ORM\Column(name="descripcion", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $descripcion;
 
@@ -39,6 +47,8 @@ class Tapas
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_creacion", type="date")
+     * @Assert\NotBlank()
+     * @Assert\Date()
      */
     private $fechaCreacion;
 
@@ -46,6 +56,8 @@ class Tapas
      * @var int
      *
      * @ORM\Column(name="precio", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\GreaterThan(0)
      */
     private $precio;
 
@@ -53,6 +65,7 @@ class Tapas
      * @var string
      *
      * @ORM\Column(name="foto", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $foto;
 
@@ -187,4 +200,3 @@ class Tapas
         return $this->foto;
     }
 }
-
