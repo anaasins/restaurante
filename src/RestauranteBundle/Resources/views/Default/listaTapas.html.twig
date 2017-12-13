@@ -3,5 +3,7 @@
   <p> {{tapa.nombre}} : {{tapa.descripcion}} </p>
   <p> FECHA CREACION: {{tapa.fechaCreacion|date('d-m-Y')}}</p>
   <p>{{tapa.precio}}€</p>
-  <p><a href="{{ path('mostrarId', {'id': tapa.id}) }}">MOSTRAR TAPA</a></p> 
+  <p><a href="{{ path('mostrarId', {'id': tapa.id}) }}">MOSTRAR TAPA</a></p>
+  <p><a href="{{ path('editarTapa', {'id': tapa.id}) }}">EDITAR TAPA</a></p> 
+  <p><a href="{{ path('eliminarTapa', {'id': tapa.id}) }}">ELIMINAR TAPA</a></p>
 {% endfor %}
