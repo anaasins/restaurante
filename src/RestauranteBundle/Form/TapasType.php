@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 
 class TapasType extends AbstractType
@@ -17,11 +19,11 @@ class TapasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nombre')
-        ->add('descripcion')
+        ->add('nombre', TextType::class)
+        ->add('descripcion', TextType::class)
         ->add('fechaCreacion', DateType::class)
-        ->add('precio')
-        ->add('foto')
+        ->add('precio', NumberType::class)
+        ->add('foto', TextType::class)
         ->add('Enviar', SubmitType::class)
         ;
     }

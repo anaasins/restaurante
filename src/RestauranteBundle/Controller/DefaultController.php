@@ -49,4 +49,16 @@ class DefaultController extends Controller
         $tapas = $repository->findAll();
         return $this->render('RestauranteBundle:Default:listaTapas.html.twig', array('tapas'=>$tapas));
     }
+
+    /**
+     * @Route("/mostrarId/{id}", name="mostrarId")
+     */
+    public function mostrarIdAction($id)
+    {
+      //devolver la clase para interactuar con la BBDD
+        $repository = $this->getDoctrine()->getRepository(Tapas::class);
+      //sacar lo que queramos de la base de datos
+        $tapas = $repository->findOneById($id);
+        return $this->render('RestauranteBundle:Default:mostrarId.html.twig', array('tapas'=>$tapas));
+    }
 }
