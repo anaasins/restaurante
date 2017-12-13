@@ -1,0 +1,6 @@
+{% for tapa in tapas %}
+  <img src="{{tapa.foto}}" alt="">
+  <p> {{tapa.nombre}} : {{tapa.descripcion}} </p>
+  <p> FECHA CREACION: {{tapa.fechaCreacion|date('d-m-Y')}}</p>
+  <p>{{tapa.precio}}€</p>
+{% endfor %}

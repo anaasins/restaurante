@@ -33,8 +33,20 @@ class DefaultController extends Controller
         $em->persist($tapa);
         $em->flush();
 
-       return $this->redirectToRoute('index');
+       return $this->redirectToRoute('listaTapas');
    }
         return $this->render('RestauranteBundle:Default:nuevaTapa.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/listaTapas", name="listaTapas")
+     */
+    public function listaTapasAction()
+    {
+      //devolver la clase para interactuar con la BBDD
+        $repository = $this->getDoctrine()->getRepository(Tapas::class);
+      //sacar lo que queramos de la base de datos
+        $tapas = $repository->findAll();
+        return $this->render('RestauranteBundle:Default:listaTapas.html.twig', array('tapas'=>$tapas));
     }
 }
