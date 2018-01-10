@@ -1,3 +1,8 @@
+clientes:
+    resource: "@ClientesBundle/Controller/"
+    type:     annotation
+    prefix:   /clientes/
+
 restaurante:
     resource: "@RestauranteBundle/Controller/"
     type:     annotation
